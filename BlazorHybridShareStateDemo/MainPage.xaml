@@ -4,11 +4,18 @@
              xmlns:local="clr-namespace:BlazorHybridShareStateDemo"
              x:Class="BlazorHybridShareStateDemo.MainPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, *">
 
-    <BlazorWebView x:Name="blazorWebView" HostPage="wwwroot/index.html">
-        <BlazorWebView.RootComponents>
-            <RootComponent Selector="#app" ComponentType="{x:Type local:Main}" />
-        </BlazorWebView.RootComponents>
-    </BlazorWebView>
+        <Label Grid.Column="0" Grid.Row="0" Text="{Binding LabelText}" Padding="5" />
+
+        <Button Grid.Column="1" Grid.Row="0" Text="Click" Padding="5" Clicked="Button_Clicked" />
+
+        <BlazorWebView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" x:Name="blazorWebView" HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent Selector="#app" ComponentType="{x:Type local:Main}" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+
+    </Grid>
 
 </ContentPage>
