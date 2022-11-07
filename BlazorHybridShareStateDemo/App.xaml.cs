@@ -2,10 +2,10 @@
 
 public partial class App : Application
 {
-	public App()
+	public App(MySharedState mySharedState)
 	{
 		InitializeComponent();
 
-		MainPage = new MainPage();
+		MainPage = new MainPage(mySharedState);
 	}
 }

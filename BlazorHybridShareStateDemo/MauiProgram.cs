@@ -24,6 +24,9 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<WeatherForecastService>();
 
+		// Make a single instance of this type available to the app
+		builder.Services.AddSingleton<MySharedState>();
+
 		return builder.Build();
 	}
 }

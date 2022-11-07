@@ -1,16 +1,27 @@
 ﻿@page "/counter"
+@inject MySharedState MySharedState
 
 <h1>Counter</h1>
 
-<p role="status">Current count: @currentCount</p>
+<p role="status">Current count: @MySharedState.CurrentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    private int currentCount = 0;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        MySharedState.CountChanged += OnCountChanged;
+    }
+
+    void OnCountChanged(object sender, EventArgs e)
+    {
+        _ = InvokeAsync(() => StateHasChanged());
+    }
 
     private void IncrementCount()
     {
-        currentCount++;
+        MySharedState.IncrementCount();
     }
 }
