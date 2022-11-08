@@ -6,9 +6,11 @@
              BackgroundColor="{DynamicResource PageBackgroundColor}">
     <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, *">
 
-        <Label Grid.Column="0" Grid.Row="0" Text="{Binding LabelText}" Padding="5" />
+        <Label Grid.Column="0" Grid.Row="0" FontSize="32" Padding="5"
+               Text="{Binding LabelText}" />
 
-        <Button Grid.Column="1" Grid.Row="0" Text="Click" Padding="5" Clicked="Button_Clicked" />
+        <Button Grid.Column="1" Grid.Row="0" FontSize="32" Text="Click" Padding="5"
+                Clicked="Button_Clicked" />
 
         <BlazorWebView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" x:Name="blazorWebView" HostPage="wwwroot/index.html">
             <BlazorWebView.RootComponents>
